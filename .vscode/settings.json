@@ -1,9 +1,0 @@
-{
-	"editor.tokenColorCustomizations": {
-		"comments": "",
-		"textMateRules": []
-	},
-	"files.associations": {
-		"libft.h": "c"
-	}
-}
