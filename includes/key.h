@@ -6,16 +6,16 @@
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 15:21:40 by qestefan          #+#    #+#             */
-/*   Updated: 2021/11/30 15:25:09 by qestefan         ###   ########.fr       */
+/*   Updated: 2021/12/03 16:30:14 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef KEY_H
 # define KEY_H
 
-#  define UP 126
-#  define DOWN 125
-#  define LEFT 124
-#  define RIGHT 123
+# define UP 126
+# define DOWN 125
+# define LEFT 124
+# define RIGHT 123
 
 #endif

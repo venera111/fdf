@@ -6,7 +6,7 @@
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 18:13:09 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/02 18:18:51 by qestefan         ###   ########.fr       */
+/*   Updated: 2021/12/03 16:27:43 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ void	bresenham(float x, float y, float x1, float y1, t_fdf *data)
 
 void	draw(t_fdf *data)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (y < data->height)

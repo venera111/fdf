@@ -6,13 +6,13 @@
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:57:06 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/02 18:19:01 by qestefan         ###   ########.fr       */
+/*   Updated: 2021/12/03 16:25:30 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fdf.h"
 
-int		deal_key(int key, t_fdf *data)
+int	deal_key(int key, t_fdf *data)
 {
 	ft_printf("%d\n", key);
 	if (key == UP)

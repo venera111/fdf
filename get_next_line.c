@@ -6,7 +6,7 @@
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 12:16:39 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/02 12:49:38 by qestefan         ###   ########.fr       */
+/*   Updated: 2021/12/03 16:25:06 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ static char	*ft_get_line_remainder(char **str)
 		line = *str;
 		*str = NULL;
 	}
-	return(line);
+	return (line);
 }
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	char		*buffer;
 	int			readed;

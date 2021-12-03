@@ -6,13 +6,13 @@
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 10:44:48 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/02 20:39:46 by qestefan         ###   ########.fr       */
+/*   Updated: 2021/12/03 16:24:45 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fdf.h"
 
-int		get_width(char *line)
+int	get_width(char *line)
 {
 	int	width;
 
@@ -21,7 +21,7 @@ int		get_width(char *line)
 	return (width);
 }
 
-int		get_height(char	*file_name, t_fdf *data)
+int	get_height(char	*file_name, t_fdf *data)
 {
 	int		fd;
 	int		height;

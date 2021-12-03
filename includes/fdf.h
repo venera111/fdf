@@ -6,7 +6,7 @@
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 10:39:18 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/02 19:05:15 by qestefan         ###   ########.fr       */
+/*   Updated: 2021/12/03 16:35:27 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 # define FDF_H
 # include "key.h"
 
-# ifndef COLOR_H
-# define COLOR_H
 # define GREEN 0x008000
 # define WHITE 0xffffff
 # define WIDTH 2000
 # define HEIGHT 1200
 # define PROGRAMM_NAME "FDF"
-# endif
 
 #include "../libft/libft.h"
 #include "../minilibx_macos/mlx.h"
@@ -30,7 +27,10 @@
 #include "../ft_printf/ft_printf.h"
 #include <math.h>
 #include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
+#include <fcntl.h>
+#include <stdbool.h>
 #include "../includes/error.h"
 
 typedef struct s_coord
