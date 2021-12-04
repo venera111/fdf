@@ -6,7 +6,7 @@
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 10:47:54 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/03 16:25:51 by qestefan         ###   ########.fr       */
+/*   Updated: 2021/12/04 13:10:24 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,6 @@ int	main(int argc, char **argv)
 		init_mlx_func(data);
 		return (0);
 	}
+	error_map(ERR_INPUT, EXIT_FAILURE);
+	return (0);
 }

@@ -6,27 +6,36 @@
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 18:13:09 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/03 16:27:43 by qestefan         ###   ########.fr       */
+/*   Updated: 2021/12/04 12:24:14 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fdf.h"
 
-#define MAX(a, b) (a > b ? a : b)
-#define MOD(a) ((a < 0) ? -a : a)
+int max_mod(float x_step, float y_step)
+{
+	if (x_step < 0)
+		x_step = -x_step;
+	if (y_step < 0)
+		y_step = -y_step;
+	if (x_step > y_step)
+		return (x_step);
+	else
+		return (y_step);
+}
 
-void	isometric(float *x, float *y, int z)
+void isometric(float *x, float *y, int z)
 {
 	*x = (*x - *y) * cos(0.8);
 	*y = (*x + *y) * sin(0.8) - z;
 }
 
-void	bresenham(float x, float y, float x1, float y1, t_fdf *data)
+void bresenham(float x, float y, float x1, float y1, t_fdf *data)
 {
-	float	x_step;
-	float	y_step;
-	int		max;
-	t_coord	cd;
+	float x_step;
+	float y_step;
+	int max;
+	t_coord cd;
 
 	cd.z = data->z_matrix[(int)y][(int)x];
 	cd.z1 = data->z_matrix[(int)y1][(int)x1];
@@ -43,7 +52,7 @@ void	bresenham(float x, float y, float x1, float y1, t_fdf *data)
 	y1 += data->y_shift;
 	x_step = x1 - x;
 	y_step = y1 - y;
-	max = MAX(MOD(x_step), MOD(y_step));
+	max = max_mod(x_step, y_step);
 	x_step /= max;
 	y_step /= max;
 	while ((int)(x - x1) || (int)(y - y1))
@@ -54,10 +63,10 @@ void	bresenham(float x, float y, float x1, float y1, t_fdf *data)
 	}
 }
 
-void	draw(t_fdf *data)
+void draw(t_fdf *data)
 {
-	int	x;
-	int	y;
+	int x;
+	int y;
 
 	y = 0;
 	while (y < data->height)

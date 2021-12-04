@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key.h                                              :+:      :+:    :+:   */
+/*   color.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 15:21:40 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/04 14:26:23 by qestefan         ###   ########.fr       */
+/*   Created: 2021/12/04 14:24:57 by qestefan          #+#    #+#             */
+/*   Updated: 2021/12/04 14:26:11 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KEY_H
-# define KEY_H
+#ifndef COLOR_H
+#define COLOR_H
 
-#define UP 126
-#define DOWN 125
-#define LEFT 124
-#define RIGHT 123
+#define GREEN 0x008000
+#define WHITE 0xffffff
 
 #endif
