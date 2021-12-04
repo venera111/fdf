@@ -6,17 +6,17 @@
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 11:48:33 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/03 16:36:40 by qestefan         ###   ########.fr       */
+/*   Updated: 2021/12/04 20:59:34 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdbool.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <stdbool.h>
 # define BUFFER_SIZE 21
 
 int		get_next_line(int fd, char **line);

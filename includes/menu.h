@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key.h                                              :+:      :+:    :+:   */
+/*   menu.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 15:21:40 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/04 20:59:49 by qestefan         ###   ########.fr       */
+/*   Created: 2021/12/04 19:34:20 by qestefan          #+#    #+#             */
+/*   Updated: 2021/12/04 21:00:06 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KEY_H
-# define KEY_H
+#ifndef MENU_H
+# define MENU_H
 
-# define KEY_ESC 53
-# define KEY_LEFT 123
-# define KEY_RIGHT 124
-# define KEY_DOWN 125
-# define KEY_UP 126
-# define KEY_PLUS 24
-# define KEY_MINUS 27
-# define KEY_Q 12
-# define KEY_W 13
-# define KEY_A 0
-# define KEY_S 1
-# define KEY_Z 6
-# define KEY_X 7
-# define KEY_I 34
-# define KEY_P 35
-# define KEY_R 15
+# define T_CNTRLS "CONTROLS"
+# define T_ZOOM_P "Zoom in:  +"
+# define T_ZOOM_M "Zoom out: -"
+# define T_MOVES "Moves: Arrows"
+# define T_ROTATE "Rotate"
+# define T_X "X-Axis:  Q / W"
+# define T_Y "Y-Axis:  A / S"
+# define T_Z "Z-Axis:  Z / X"
+# define T_PROJ "Projections"
+# define T_PARAL "Parallel: P"
+# define T_ISO "Isometric: I"
 
 #endif

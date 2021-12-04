@@ -6,22 +6,45 @@
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 10:44:48 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/04 13:27:49 by qestefan         ###   ########.fr       */
+/*   Updated: 2021/12/04 20:55:47 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fdf.h"
 
-int	get_width(char *line)
+static void	get_points(char *line, t_fdf *data, int j)
 {
-	int width;
+	int	i;
+	int	flag;
+
+	i = 0;
+	flag = 1;
+	while (*line)
+	{
+		if (*line != ' ' && flag)
+		{
+			data->p[j * data->width + i].x = i;
+			data->p[j * data->width + i].y = j;
+			data->p[j * data->width + i].z = ft_atoi(line);
+			i++;
+			flag = 0;
+		}
+		else if (*line == ' ')
+			flag = 1;
+		line++;
+	}
+}
+
+static int	get_width(char *line)
+{
+	int	width;
 
 	width = 0;
 	width = ft_wdcounter(line, ' ');
 	return (width);
 }
 
-void	get_height(char *file_name, t_fdf *data)
+static void	get_height(char *file_name, t_fdf *data)
 {
 	int		fd;
 	char	*line;
@@ -30,7 +53,6 @@ void	get_height(char *file_name, t_fdf *data)
 	fd = open(file_name, O_RDONLY);
 	if (fd < 0)
 		ft_perror(file_name);
-	data->height = 0;
 	tmp = 0;
 	while (get_next_line(fd, &line) > 0)
 	{
@@ -40,53 +62,31 @@ void	get_height(char *file_name, t_fdf *data)
 			tmp = data->width;
 		if (data->width != tmp)
 			error_map(ERR_AXES, 3);
-		data->height++;
+		(data->height)++;
 	}
 	free(line);
-	close(fd);
 	if (data->width == 0)
 		error_map(ERR_EMPTY, 2);
-}
-
-void	fill_matrix(int *z_line, char *line)
-{
-	char **nums;
-	int i;
-
-	nums = ft_split(line, ' ');
-	i = 0;
-	while (nums[i])
-	{
-		z_line[i] = ft_atoi(nums[i]);
-		free(nums[i]);
-		i++;
-	}
-	free(nums);
-	nums = NULL;
+	close(fd);
 }
 
 void	read_file(char *file_name, t_fdf *data)
 {
-	int i;
-	int fd;
-	char *line;
+	int		j;
+	int		fd;
+	char	*line;
 
 	get_height(file_name, data);
-	data->z_matrix = (int **)malloc(sizeof(int *) * (data->height + 1));
-	i = 0;
-	while (i < data->height)
-	{
-		data->z_matrix[i] = (int *)malloc(sizeof(int) * (data->width + 1));
-		i++;
-	}
-	i = 0;
+	data->p = (t_point *)malloc(sizeof(t_point) * data->width * data->height);
+	if (!data->p)
+		ft_perror("malloc points");
 	fd = open(file_name, O_RDONLY);
+	j = 0;
 	while (get_next_line(fd, &line) > 0)
 	{
-		fill_matrix(data->z_matrix[i], line);
+		get_points(line, data, j);
 		free(line);
-		i++;
+		j++;
 	}
-	free(line);
 	close(fd);
 }

@@ -6,68 +6,94 @@
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 18:13:09 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/04 12:24:14 by qestefan         ###   ########.fr       */
+/*   Updated: 2021/12/04 20:56:43 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fdf.h"
 
-int max_mod(float x_step, float y_step)
+void	my_mlx_pixel_put(t_fdf *data, int x, int y, int color)
 {
-	if (x_step < 0)
-		x_step = -x_step;
-	if (y_step < 0)
-		y_step = -y_step;
-	if (x_step > y_step)
-		return (x_step);
-	else
-		return (y_step);
-}
+	char	*dst;
 
-void isometric(float *x, float *y, int z)
-{
-	*x = (*x - *y) * cos(0.8);
-	*y = (*x + *y) * sin(0.8) - z;
-}
-
-void bresenham(float x, float y, float x1, float y1, t_fdf *data)
-{
-	float x_step;
-	float y_step;
-	int max;
-	t_coord cd;
-
-	cd.z = data->z_matrix[(int)y][(int)x];
-	cd.z1 = data->z_matrix[(int)y1][(int)x1];
-	x *= data->zoom;
-	y *= data->zoom;
-	x1 *= data->zoom;
-	y1 *= data->zoom;
-	data->color = (cd.z || cd.z1) ? GREEN : WHITE;
-	isometric(&x, &y, cd.z);
-	isometric(&x1, &y1, cd.z1);
-	x += data->x_shift;
-	y += data->y_shift;
-	x1 += data->x_shift;
-	y1 += data->y_shift;
-	x_step = x1 - x;
-	y_step = y1 - y;
-	max = max_mod(x_step, y_step);
-	x_step /= max;
-	y_step /= max;
-	while ((int)(x - x1) || (int)(y - y1))
+	if (x >= MENU && y >= 0 && x < WIDTH && y < HEIGHT)
 	{
-		mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, data->color);
-		x += x_step;
-		y += y_step;
+		dst = data->addr + (y * data->size_line + x
+				* (data->bits_per_pixel / 8));
+		*(unsigned int *)dst = color;
 	}
 }
 
-void draw(t_fdf *data)
+static void	draw_controls(t_fdf *data)
 {
-	int x;
-	int y;
+	int	y;
 
+	y = 0;
+	mlx_string_put(data->mlx, data->mlx_win, 55, y += 20, C_TEXT, T_CNTRLS);
+	mlx_string_put(data->mlx, data->mlx_win, 20, y += 30, C_TEXT, T_ZOOM_P);
+	mlx_string_put(data->mlx, data->mlx_win, 20, y += 20, C_TEXT, T_ZOOM_M);
+	mlx_string_put(data->mlx, data->mlx_win, 20, y += 30, C_TEXT, T_MOVES);
+	mlx_string_put(data->mlx, data->mlx_win, 60, y += 30, C_TEXT, T_ROTATE);
+	mlx_string_put(data->mlx, data->mlx_win, 20, y += 20, C_TEXT, T_X);
+	mlx_string_put(data->mlx, data->mlx_win, 20, y += 20, C_TEXT, T_Y);
+	mlx_string_put(data->mlx, data->mlx_win, 20, y += 20, C_TEXT, T_Z);
+	mlx_string_put(data->mlx, data->mlx_win, 45, y += 30, C_TEXT, T_PROJ);
+	mlx_string_put(data->mlx, data->mlx_win, 20, y += 20, C_TEXT, T_PARAL);
+	mlx_string_put(data->mlx, data->mlx_win, 20, y += 20, C_TEXT, T_ISO);
+}
+
+static void	draw_background(t_fdf *data)
+{
+	int	*img;
+	int	i;
+
+	img = (int *)data->addr;
+	i = 0;
+	while (i < WIDTH * HEIGHT)
+	{
+		if (i % WIDTH < MENU)
+			img[i] = C_MENU;
+		else
+			img[i] = C_BACKGROUND;
+		i++;
+	}
+}
+
+static void	draw_line(t_point p1, t_point p2, t_fdf *data)
+{
+	t_point	d;
+	t_point	s;
+	t_point	tmp;
+
+	d.x = abs(p2.x - p1.x);
+	d.y = abs(p2.y - p1.y);
+	s.x = sign(p1.x, p2.x);
+	s.y = sign(p1.y, p2.y);
+	d.z = d.x - d.y;
+	tmp = p1;
+	while (tmp.x != p2.x || tmp.y != p2.y)
+	{
+		my_mlx_pixel_put(data, tmp.x, tmp.y, coloring(tmp, p1, p2, d));
+		s.z = d.z * 2;
+		if (s.z > -d.y)
+		{
+			d.z -= d.y;
+			tmp.x += s.x;
+		}
+		if (s.z < d.x)
+		{
+			d.z += d.x;
+			tmp.y += s.y;
+		}
+	}
+}
+
+void	draw_map(t_fdf *data)
+{
+	int	x;
+	int	y;
+
+	draw_background(data);
 	y = 0;
 	while (y < data->height)
 	{
@@ -75,11 +101,15 @@ void draw(t_fdf *data)
 		while (x < data->width)
 		{
 			if (x < data->width - 1)
-				bresenham(x, y, x + 1, y, data);
+				draw_line(give_point(data->p[x + y * data->width], data),
+					give_point(data->p[x + 1 + y * data->width], data), data);
 			if (y < data->height - 1)
-				bresenham(x, y, x, y + 1, data);
+				draw_line(give_point(data->p[x + y * data->width], data),
+					give_point(data->p[x + (y + 1) * data->width], data), data);
 			x++;
 		}
 		y++;
 	}
+	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img, 0, 0);
+	draw_controls(data);
 }
