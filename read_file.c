@@ -6,13 +6,13 @@
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 10:44:48 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/04 20:55:47 by qestefan         ###   ########.fr       */
+/*   Updated: 2021/12/05 15:59:16 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fdf.h"
 
-static void	get_points(char *line, t_fdf *data, int j)
+static void	get_coordinates(char *line, t_fdf *data, int j)
 {
 	int	i;
 	int	flag;
@@ -84,7 +84,7 @@ void	read_file(char *file_name, t_fdf *data)
 	j = 0;
 	while (get_next_line(fd, &line) > 0)
 	{
-		get_points(line, data, j);
+		get_coordinates(line, data, j);
 		free(line);
 		j++;
 	}

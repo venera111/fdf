@@ -6,7 +6,7 @@
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 18:13:09 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/04 20:56:43 by qestefan         ###   ########.fr       */
+/*   Updated: 2021/12/05 22:07:39 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	my_mlx_pixel_put(t_fdf *data, int x, int y, int color)
 
 	if (x >= MENU && y >= 0 && x < WIDTH && y < HEIGHT)
 	{
-		dst = data->addr + (y * data->size_line + x
+		dst = data->addr + (y * data->line_length + x
 				* (data->bits_per_pixel / 8));
 		*(unsigned int *)dst = color;
 	}
@@ -52,9 +52,9 @@ static void	draw_background(t_fdf *data)
 	while (i < WIDTH * HEIGHT)
 	{
 		if (i % WIDTH < MENU)
-			img[i] = C_MENU;
+			img[i] = COLOR_MENU;
 		else
-			img[i] = C_BACKGROUND;
+			img[i] = COLOR_BACK;
 		i++;
 	}
 }

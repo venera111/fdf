@@ -6,7 +6,7 @@
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 17:01:58 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/04 20:57:14 by qestefan         ###   ########.fr       */
+/*   Updated: 2021/12/05 22:07:58 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,15 @@ void	window(t_fdf *data)
 {
 	data->mlx = mlx_init();
 	if (!data->mlx)
-		ft_perror("mlx");
+		ft_perror("failed to initialize the mlx library");
 	data->mlx_win = mlx_new_window(data->mlx, WIDTH, HEIGHT, PROGRAMM_NAME);
 	if (!data->mlx_win)
-		ft_perror("mlx_win");
+		ft_perror("failed to create a window");
 	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	if (!data->img)
 		ft_perror("img");
 	data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel,
-			&data->size_line, &data->endian);
+			&data->line_length, &data->endian);
 	if (!data->addr)
 		ft_perror("addr");
 	draw_map(data);

@@ -6,7 +6,7 @@
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:42:04 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/04 20:57:04 by qestefan         ###   ########.fr       */
+/*   Updated: 2021/12/05 22:08:31 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	struct_fill(t_fdf *data)
 	data->img = NULL;
 	data->addr = NULL;
 	data->bits_per_pixel = 0;
-	data->size_line = 0;
+	data->line_length = 0;
 	data->endian = 0;
 	data->offset_x = (WIDTH - MENU) / 2;
 	data->offset_y = HEIGHT / 2;
