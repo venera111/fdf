@@ -6,7 +6,7 @@
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 20:39:01 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/06 10:33:03 by qestefan         ###   ########.fr       */
+/*   Updated: 2021/12/06 12:50:27 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,40 @@
 
 void	x_rotate(int *y, int *z, float alpha)
 {
-	int	tmp_y;
+	int	previous_y;
 
-	tmp_y = *y;
-	*y = tmp_y * cos(alpha) + *z * sin(alpha);
-	*z = -tmp_y * sin(alpha) + *z * cos(alpha);
+	previous_y = *y;
+	*y = previous_y * cos(alpha) + *z * sin(alpha);
+	*z = -previous_y * sin(alpha) + *z * cos(alpha);
 }
 
 void	y_rotate(int *x, int *z, float beta)
 {
-	int	tmp_x;
+	int	previous_x;
 
-	tmp_x = *x;
-	*x = tmp_x * cos(beta) + *z * sin(beta);
-	*z = -tmp_x * sin(beta) + *z * cos(beta);
+	previous_x = *x;
+	*x = previous_x * cos(beta) + *z * sin(beta);
+	*z = -previous_x * sin(beta) + *z * cos(beta);
 }
 
 void	z_rotate(int *x, int *y, float gamma)
 {
-	int	tmp_x;
-	int	tmp_y;
+	int	previous_x;
+	int	previous_y;
 
-	tmp_x = *x;
-	tmp_y = *y;
-	*x = tmp_x * cos(gamma) - tmp_y * sin(gamma);
-	*y = tmp_x * sin(gamma) + tmp_y * cos(gamma);
+	previous_x = *x;
+	previous_y = *y;
+	*x = previous_x * cos(gamma) - previous_y * sin(gamma);
+	*y = previous_x * sin(gamma) + previous_y * cos(gamma);
 }
 
 void	iso_proj(int *x, int *y, int z)
 {
-	int	tmp_x;
-	int	tmp_y;
+	int	previous_x;
+	int	previous_y;
 
-	tmp_x = *x;
-	tmp_y = *y;
-	*x = (tmp_x - tmp_y) * cos(0.523599);
-	*y = (tmp_x + tmp_y) * sin (0.523599) - z;
+	previous_x = *x;
+	previous_y = *y;
+	*x = (previous_x - previous_y) * cos(0.523599);
+	*y = (previous_x + previous_y) * sin (0.523599) - z;
 }
