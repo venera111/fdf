@@ -6,7 +6,7 @@
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 14:40:32 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/05 16:59:25 by qestefan         ###   ########.fr       */
+/*   Updated: 2021/12/07 16:48:27 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 static int	color_gradient(double private)
 {
-	if (private <= 0.2)
+	if (private <= 0.05)
+		return (LVL_0);
+	else if (private <= 0.2)
 		return (LVL_1);
 	else if (private <= 0.4)
 		return (LVL_2);
@@ -24,6 +26,24 @@ static int	color_gradient(double private)
 		return (LVL_4);
 	else
 		return (LVL_5);
+}
+
+static int	find_z(t_fdf *data, int flag)
+{
+	int	i;
+	int	z;
+
+	i = 0;
+	z = data->p[0].z;
+	while (i < data->height * data->width)
+	{
+		if (!flag && z > data->p[i].z)
+			z = data->p[i].z;
+		else if (flag && z < data->p[i].z)
+			z = data->p[i].z;
+		i++;
+	}
+	return (z);
 }
 
 void	colors(t_fdf *data)
@@ -44,9 +64,9 @@ void	colors(t_fdf *data)
 	}
 }
 
-static int	light(int start, int end, double perc)
+static int	light(int start, int end, double private)
 {
-	return ((int)((1 - perc) * start + perc * end));
+	return ((int)((1 - private) * start + private * end));
 }
 
 int	coloring(t_point cur, t_point p1, t_point p2, t_point d)
@@ -54,16 +74,16 @@ int	coloring(t_point cur, t_point p1, t_point p2, t_point d)
 	int		red;
 	int		green;
 	int		blue;
-	double	perc;
+	double	private;
 
 	if (cur.color == p2.color)
 		return (cur.color);
 	if (d.x > d.y)
-		perc = private_distances(cur.x, p1.x, p2.x);
+		private = private_distances(cur.x, p1.x, p2.x);
 	else
-		perc = private_distances(cur.y, p1.y, p2.y);
-	red = light((p1.color >> 16) & 0xFF, (p2.color >> 16) & 0xFF, perc);
-	green = light((p1.color >> 8) & 0xFF, (p2.color >> 8) & 0xFF, perc);
-	blue = light(p1.color & 0xFF, p2.color & 0xFF, perc);
+		private = private_distances(cur.y, p1.y, p2.y);
+	red = light((p1.color >> 16) & 0xFF, (p2.color >> 16) & 0xFF, private);
+	green = light((p1.color >> 8) & 0xFF, (p2.color >> 8) & 0xFF, private);
+	blue = light(p1.color & 0xFF, p2.color & 0xFF, private);
 	return ((red << 16) | (green << 8) | blue);
 }

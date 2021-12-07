@@ -6,7 +6,7 @@
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 15:21:40 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/04 20:59:49 by qestefan         ###   ########.fr       */
+/*   Updated: 2021/12/07 21:47:38 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@
 # define KEY_I 34
 # define KEY_P 35
 # define KEY_R 15
+# define KEY_PLUS_Z 8 /////клавиша для зума координаты z
+# define KEY_MINUS_Z 9 /////клавиша для зума координаты z
 
 #endif

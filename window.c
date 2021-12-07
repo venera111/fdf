@@ -6,7 +6,7 @@
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 17:01:58 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/05 22:07:58 by qestefan         ###   ########.fr       */
+/*   Updated: 2021/12/07 21:44:48 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	key_hook(int key, t_fdf *data)
 		iso(data);
 	if (key == KEY_P)
 		paral(data);
+	if (key == KEY_PLUS_Z || key == KEY_MINUS_Z)
+		zoom_z(data, key);
 	return (0);
 }
 

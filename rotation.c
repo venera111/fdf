@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_rotation.c                                     :+:      :+:    :+:   */
+/*   rotation.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 20:39:01 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/06 12:50:27 by qestefan         ###   ########.fr       */
+/*   Updated: 2021/12/07 15:52:38 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	z_rotate(int *x, int *y, float gamma)
 	*y = previous_x * sin(gamma) + previous_y * cos(gamma);
 }
 
-void	iso_proj(int *x, int *y, int z)
+void	iso_3d(int *x, int *y, int z)
 {
 	int	previous_x;
 	int	previous_y;

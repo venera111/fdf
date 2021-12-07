@@ -6,7 +6,7 @@
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 18:13:09 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/05 22:07:39 by qestefan         ###   ########.fr       */
+/*   Updated: 2021/12/07 16:19:39 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,16 @@ static void	draw_controls(t_fdf *data)
 	int	y;
 
 	y = 0;
-	mlx_string_put(data->mlx, data->mlx_win, 55, y += 20, C_TEXT, T_CNTRLS);
-	mlx_string_put(data->mlx, data->mlx_win, 20, y += 30, C_TEXT, T_ZOOM_P);
-	mlx_string_put(data->mlx, data->mlx_win, 20, y += 20, C_TEXT, T_ZOOM_M);
-	mlx_string_put(data->mlx, data->mlx_win, 20, y += 30, C_TEXT, T_MOVES);
-	mlx_string_put(data->mlx, data->mlx_win, 60, y += 30, C_TEXT, T_ROTATE);
-	mlx_string_put(data->mlx, data->mlx_win, 20, y += 20, C_TEXT, T_X);
-	mlx_string_put(data->mlx, data->mlx_win, 20, y += 20, C_TEXT, T_Y);
-	mlx_string_put(data->mlx, data->mlx_win, 20, y += 20, C_TEXT, T_Z);
-	mlx_string_put(data->mlx, data->mlx_win, 45, y += 30, C_TEXT, T_PROJ);
-	mlx_string_put(data->mlx, data->mlx_win, 20, y += 20, C_TEXT, T_PARAL);
-	mlx_string_put(data->mlx, data->mlx_win, 20, y += 20, C_TEXT, T_ISO);
+	mlx_string_put(data->mlx, data->mlx_win, 10, y += 30, C_TEXT, M_MENU);
+	mlx_string_put(data->mlx, data->mlx_win, 40, y += 30, C_TEXT, M_ZOOM_P);
+	mlx_string_put(data->mlx, data->mlx_win, 40, y += 30, C_TEXT, M_ZOOM_M);
+	mlx_string_put(data->mlx, data->mlx_win, 10, y += 40, C_TEXT, M_ROTATE);
+	mlx_string_put(data->mlx, data->mlx_win, 40, y += 30, C_TEXT, M_X);
+	mlx_string_put(data->mlx, data->mlx_win, 40, y += 30, C_TEXT, M_Y);
+	mlx_string_put(data->mlx, data->mlx_win, 40, y += 30, C_TEXT, M_Z);
+	mlx_string_put(data->mlx, data->mlx_win, 10, y += 40, C_TEXT, M_PROJ);
+	mlx_string_put(data->mlx, data->mlx_win, 40, y += 30, C_TEXT, M_PARAL);
+	mlx_string_put(data->mlx, data->mlx_win, 40, y += 30, C_TEXT, M_ISO);
 }
 
 static void	draw_background(t_fdf *data)
@@ -51,10 +50,7 @@ static void	draw_background(t_fdf *data)
 	i = 0;
 	while (i < WIDTH * HEIGHT)
 	{
-		if (i % WIDTH < MENU)
-			img[i] = COLOR_MENU;
-		else
-			img[i] = COLOR_BACK;
+		img[i] = COLOR_BACK;
 		i++;
 	}
 }
