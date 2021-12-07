@@ -6,12 +6,12 @@
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 14:24:57 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/07 14:33:46 by qestefan         ###   ########.fr       */
+/*   Updated: 2021/12/07 14:35:28 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COLOR_H
-#define COLOR_H
+# define COLOR_H
 
 # define LVL_5 0xE9FF70
 # define LVL_4 0xFFD670
