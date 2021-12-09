@@ -6,7 +6,7 @@
 #    By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/09 11:29:44 by qestefan          #+#    #+#              #
-#    Updated: 2021/12/09 18:58:51 by qestefan         ###   ########.fr        #
+#    Updated: 2021/12/09 19:07:16 by qestefan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ ifeq ($(OS), Linux)
 	OPENGL = -lm -lbsd -lX11 -lXext
 	MLX_A = libmlx_Linux.a
 	FLAGS += -D LINUX=1
-	#adds = sudo apt-get install gcc make xorg libxext-dev libbsd-dev
+	adds = sudo apt-get install gcc make xorg libxext-dev libbsd-dev
 endif
 
 ifeq ($(OS), Darwin)
