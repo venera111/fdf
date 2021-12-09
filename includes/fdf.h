@@ -6,7 +6,7 @@
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 10:39:18 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/09 10:51:07 by qestefan         ###   ########.fr       */
+/*   Updated: 2021/12/09 16:11:36 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,13 @@
 # include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../libft/libft.h"
-# include "../ft_printf/ft_printf.h"
-# include "../minilibx_macos/mlx.h"
-# include "../includes/get_next_line.h"
-# include "../includes/error.h"
-# include "../includes/color.h"
-# include "../includes/menu.h"
-# include "../includes/key.h"
+# include <libft.h>
+# include <mlx.h>
+# include <get_next_line.h>
+# include <error.h>
+# include <color.h>
+# include <menu.h>
+# include <key.h>
 
 typedef struct s_point
 {
