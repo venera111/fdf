@@ -6,49 +6,47 @@
 #    By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/09 11:29:44 by qestefan          #+#    #+#              #
-#    Updated: 2021/12/09 17:10:19 by qestefan         ###   ########.fr        #
+#    Updated: 2021/12/09 18:58:51 by qestefan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-OS :=	$(shell uname)
+OS := $(shell uname)
 adds =
-FLAGS	= -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 ifeq ($(OS), Linux)
-	COMPILE = Linux Compile...
 	MINILIBX_DIR = minilibx/minilbx_linux
 	LIB_MLX = ./minilibx/minilbx_linux
 	OPENGL = -lm -lbsd -lX11 -lXext
 	MLX_A = libmlx_Linux.a
-	FLAGS	+= -D LINUX=1
+	FLAGS += -D LINUX=1
 	#adds = sudo apt-get install gcc make xorg libxext-dev libbsd-dev
 endif
 
 ifeq ($(OS), Darwin)
-	COMPILE = MAC OS Compile...
 	MINILIBX_DIR = minilibx/minilibx_macos
 	LIB_MLX = ./minilibx/minilibx_macos
 	OPENGL = -lz -framework OpenGL -framework AppKit
 	MLX_A = libmlx.a
-	FLAGS	+= -D DARWIN=1
+	FLAGS += -D DARWIN=1
 endif
 
 NAME_PROJECT = fdf
-LIB_DIR =  ./libft/
+LIB_DIR = ./libft/
 LIB_NAME =	libft/libft.a
 LIB_HEADER = libft
-MINILIBX_A_DIR 		=	$(MINILIBX_DIR)/$(MLX_A)
+MINILIBX_A_DIR = $(MINILIBX_DIR)/$(MLX_A)
 LIBFT = libft.a
-CC		= gcc
-HEADER	= includes
-OBJS	 = $(SRCS:.c=.o)
-DIR		= ./source/
+CC = gcc
+HEADER = includes
+OBJS = $(SRCS:.c=.o)
+DIR = ./source/
 SRCS = $(DIR)colors.c $(DIR)draw.c $(DIR)error.c $(DIR)get_next_line.c $(DIR)get_next_line_utils.c $(DIR)hooks.c\
 		$(DIR)main.c $(DIR)point.c $(DIR)read_file.c $(DIR)rotation.c $(DIR)utils.c $(DIR)window.c
-AR		= ar rc
+AR = ar rc
 
 .c.o:
-	$(CC) $(FLAGS) -c  -I$(HEADER) -I$(LIB_HEADER) $< -o $(<:.c=.o)
+	$(CC) $(FLAGS) -c -I$(HEADER) -I$(LIB_HEADER) $< -o $(<:.c=.o)
 
 all: $(LIBFT) $(MLX_A) $(NAME_PROJECT)
 
@@ -60,7 +58,7 @@ $(MLX_A):
 $(LIBFT):
 		@$(MAKE) -C $(LIB_DIR)
 $(NAME_PROJECT): $(OBJS)
-		$(CC) $(FLAGS)  -I$(HEADER) $(OBJS) -L. $(LIB_NAME)  $(MINILIBX_A_DIR) $(OPENGL)  -o $(NAME_PROJECT)
+		$(CC) $(FLAGS) -I$(HEADER) $(OBJS) -L. $(LIB_NAME) $(MINILIBX_A_DIR) $(OPENGL) -o $(NAME_PROJECT)
 
 clean:
 	make clean -C $(LIB_DIR)
