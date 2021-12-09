@@ -6,30 +6,30 @@
 /*   By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 10:39:18 by qestefan          #+#    #+#             */
-/*   Updated: 2021/12/07 21:57:22 by qestefan         ###   ########.fr       */
+/*   Updated: 2021/12/09 10:46:30 by qestefan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
-#define FDF_H
+# define FDF_H
 
-#define MENU 200
-#define WIDTH 2200
-#define HEIGHT 1300
-#define ANGLE 0.05
-#define PROGRAMM_NAME "FDF"
+# define MENU 200
+# define WIDTH 2200
+# define HEIGHT 1300
+# define ANGLE 0.05
+# define PROGRAMM_NAME "FDF"
 
-#include <math.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include "../libft/libft.h"
-#include "../ft_printf/ft_printf.h"
-#include "../minilibx_macos/mlx.h"
-#include "../includes/get_next_line.h"
-#include "../includes/error.h"
-#include "../includes/color.h"
-#include "../includes/menu.h"
-#include "../includes/key.h"
+# include <math.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include "../libft/libft.h"
+# include "../ft_printf/ft_printf.h"
+# include "../minilibx_macos/mlx.h"
+# include "../includes/get_next_line.h"
+# include "../includes/error.h"
+# include "../includes/color.h"
+# include "../includes/menu.h"
+# include "../includes/key.h"
 
 typedef struct s_point
 {
