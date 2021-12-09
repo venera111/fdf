@@ -6,7 +6,7 @@
 #    By: qestefan <qestefan@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/09 11:29:44 by qestefan          #+#    #+#              #
-#    Updated: 2021/12/09 19:07:16 by qestefan         ###   ########.fr        #
+#    Updated: 2021/12/09 19:31:00 by qestefan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,6 @@ fclean: clean
 re: fclean all
 
 norm:
-	norminette *.c *.h
+	norminette source/*.c includes/*.h
 
 .PHONY: all clean fclean re code bonus norm
