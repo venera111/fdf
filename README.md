@@ -31,4 +31,4 @@ The result of this project includes a Makefile. Makefile supports general rules 
 
 # 6 How to execute the program
 The fdf program receives the coordinates and color information of the terrain to be projected as a parameter of the program in file format.
-> ./fdf \<map_file>
+> ./fdf test_maps/<map_file>
