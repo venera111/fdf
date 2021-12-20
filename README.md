@@ -25,3 +25,10 @@ The knowledge necessary for the projection of three-dimensional coordinates, suc
 * When an error occurs while the program is running, the perror function outputs a corresponding error message.
 
 * fdf uses the MiniLibX graphics library created by Ecole 42.
+
+# 5. How to compile the project
+The result of this project includes a Makefile. Makefile supports general rules (all, clean, fclean, re). After all the source codes are compiled, the ./fdf program is created.
+
+# 6 How to execute the program
+The fdf program receives the coordinates and color information of the terrain to be projected as a parameter of the program in file format.
+> ./fdf \<map_file>
