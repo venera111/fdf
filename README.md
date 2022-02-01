@@ -9,7 +9,6 @@
 | English Subject | [en.subject](https://github.com/venera111/fdf/blob/master/en.subject.pdf) |
 
 ![42.fdf карта](fdf.png)
-![42.fdf карта](1.gif)
 
 ### 1.1 Rotation Matrix
 ![image](https://user-images.githubusercontent.com/78787523/151947733-6ae06edc-aa36-47f8-a3d0-50a522014dc7.png)
