@@ -29,10 +29,13 @@ In the above case, it can be interpreted as rotating the backter in the directio
 ### 1.3 Three-dimensional rotation transformation
 Rotation transformation in three dimensions can be induced by looking at (x'y'z') if the coordinate axis (xyz) is rotated at any angle for any backter A.
 ![image](https://user-images.githubusercontent.com/78787523/151948405-a1429fd6-93c5-4333-bf4f-e8f3631d64a2.png)
+
 The results of the analysis are as follows according to the principles of inner and inner spirit.
 ![image](https://user-images.githubusercontent.com/78787523/151948462-c0fd30a2-86e4-4363-8bc4-829bfb4ea065.png)
+
 In the matrix formula below, the right-sided initial term can be arranged as a rotational transformation matrix. If you organize this through a trigonometric operation, the rotation transformation matrix for each axis is as follows.
 ![image](https://user-images.githubusercontent.com/78787523/151948522-a0d56ef2-72d9-4594-b71e-73d0f3e70094.png)
+
 Implementing this in code is as follows:
 ```C
 static void	rotate_x(int *y, int *z, double alpha)
