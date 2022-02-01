@@ -102,3 +102,5 @@ FDF Video: [Николай СФамилией](https://www.youtube.com/watch?v=1
 Animation and Geometric Transformations: [OpenALG](https://alg.manifoldapp.org/read/computer-graphics-and-multimedia/section/7d42ae69-a732-4050-9a39-11d84e123b7e)
 [42Seoul] cub3d/minirt - M1: [seomoon.log](https://velog.io/@seomoon/M1-%EB%A7%A5%EC%97%90%EC%84%9C-minilibX-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B0-42-cub3dminiRT)
 Основы трехмерного зрения: [Сергей Носов](https://delta-course.org/docs/delta7/Day8/Delta7D8L1.pdf)
+42MapGenerator: [jgigault](https://github.com/jgigault/42MapGenerator)
+
