@@ -8,6 +8,8 @@
 | Topics | `Graphics` `Line Drawing Algorithm` `Isometic Projection` |
 | English Subject | [en.subject](https://github.com/venera111/fdf/blob/master/en.subject.pdf) |
 
+![42.fdf карта](Screen Shot 2022-02-01 at 12.28.15 PM.png)
+
 # 2. Summary
 The FdF project implements a simple wireframe graphical model that projects a curved terrain by connecting various points of a three-dimensional segment.
 
